@@ -102,6 +102,7 @@ begin
     insert into transactions values (5,now(),'AB10203','NK90123',50,'init');
     begin
         update accounts set balance = balance - 50 where account_id = 'AB10203';
+        update accounts set balance = balance + 50 where account_id = 'NK90123';
         update transactions set status = 'commited' where id = 5;
         exception
             when others then
