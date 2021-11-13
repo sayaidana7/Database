@@ -93,7 +93,10 @@ insert into customers values (204,null,null);
 --5
 create unique index index1 on accounts (customer_id,currency);
 insert into accounts values ('RS12345',201,'KZT',5000,0);
-delete from accounts where account_id = 'RS12345';
+
+create index find_accounts on accounts(currency,balance);
+create index find_by_sender on transactions(src_account);
+create index find_by_recipient on transactions(dst_account);
 
 --6
 do
